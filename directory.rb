@@ -1,28 +1,34 @@
-student_count = 22
+students = [
+	"Ruth Earle", 
+	"Andy Gates", 
+	"Marc Singh", 
+	"Faisal Aydarus", 
+	"Ethel Ng", 
+	"Kevin Daniells", 
+	"Maya Driver", 
+	"Leopold Kwok", 
+	"James McNeil", 
+	"Jerome Pratt", 
+	"David Wickes", 
+	"Javier Silverio", 
+	"Elliot Lewis", 
+	"Ben Tillett", 
+	"Vincent Koch", 
+	"Michelle Ballard", 
+	"Tatiana Soukiassian", 
+	"Mervé Silk", 
+	"Albert Vallervu", 
+	"Lovis Schultze", 
+	"Chris Oatley", 
+	"Spike Lindsey", 
+	"Henry Stanley"
+]
+
 puts "The students of my cohort at Makers Academy"
 puts "------------------------"
-puts "Ruth Earle"
-puts "Andy Gates"
-puts "Marc Singh"
-puts "Faisal Aydarus"
-puts "Ethel Ng"
-puts "Kevin Daniells"
-puts "Maya Driver"
-puts "Leopold Kwok"
-puts "James McNeil"
-puts "Jerome Pratt"
-puts "David Wickes"
-puts "Javier Silverio"
-puts "Elliot Lewis"
-puts "Ben Tillett"
-puts "Vincent Koch"
-puts "Michelle Ballard"
-puts "Tatiana Soukiassian"
-puts "Mervé Silk"
-puts "Albert Vallervu"
-puts "Lovis Schultze"
-puts "Chris Oatley"
-puts "Spike Lindsey"
-puts "Henry Stanley"
 
-puts "Overall, we have #{student_count} great students"
+students.each do 
+	|student| puts student
+end
+
+puts "Overall, we have #{students.length} great students"
