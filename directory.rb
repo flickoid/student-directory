@@ -23,3 +23,7 @@ puts "Lovis Schultze"
 puts "Chris Oatley"
 puts "Spike Lindsey"
 puts "Henry Stanley"
+
+print "Overall, we have "
+print 22
+puts " great students"
