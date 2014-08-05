@@ -36,10 +36,38 @@ def print(students)
 	end
 end
 
+def start_with(students, start_letter)
+	students.select {|student| student[:name][0] == start_letter}
+end
+
+def print_with_index(students)
+	students.each_with_index do |student, index| 
+		puts "#{index}. #{student[:name]} (#{student[:cohort]} cohort)"
+	end
+end
+
 def print_footer(names)
 	puts "Overall, we have #{names.length} great students"
 end
 
+def input_students
+	puts "Please enter the names of the students"
+	puts "To finish, just hit return twice"
+
+	students = []
+
+	name = gets.chomp
+
+	while !name.empty? do
+		students << {:name => name, :cohort => :August}
+		puts "Now we have #{students.length} students"
+
+		name = gets.chomp
+	end
+	students
+end
+
+# students = input_students
 print_header
-print(students)
+print(start_with(students,"D"))
 print_footer(students)
