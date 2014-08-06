@@ -1,5 +1,5 @@
 students = [
-	{:name => "Ruth Earle", :cohort => :August},
+	{:name => "Ruth E arle", :cohort => :August},
 	{:name => "Andy Gates", :cohort => :August},
 	{:name => "Marc Singh", :cohort => :August},
 	{:name => "Faisal Aydarus", :cohort => :August},
