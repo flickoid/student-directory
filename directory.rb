@@ -78,6 +78,7 @@ def input_students_multi
 	while !name.empty? do
 		students << build_student_from_input(name)
 		puts "Now we have #{students.length} students"
+		puts "Please enter the name of the next student"
 		name = gets.chomp
 	end
 	print_header
@@ -89,15 +90,28 @@ def build_student_from_input(name)
 	
 	puts "Please enter their cohort"
 	cohort = gets.chomp
+	if cohort.empty?
+		cohort = "blank"
+	end
 
 	puts "Please enter their hobbies"
 	hobbies = gets.chomp
+	if hobbies.empty?
+		hobbies = "blank"
+	end
 
 	puts "Please enter their country of birth"
 	country = gets.chomp
+	if country.empty?
+		country = "blank"
+	end
 
 	puts "What is their favourite cartoon character?"
 	cartoon = gets.chomp
+	if cartoon.empty?
+		cartoon = "blank"
+	end
+
 	create_student(name, cohort, hobbies, country, cartoon)
 end
 
