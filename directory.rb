@@ -26,25 +26,12 @@
 # ]
 
 def print_header
-	puts "The students of my cohort at Makers Academy"
-	puts "------------------------"
+	puts "The students of my cohort at Makers Academy".center(50)
+	puts "------------------------".center(50)
 end
 
-# changes .each to while loop
-def print_loop(students)
-	length = students.length
-	count = 0
-	while count < length do 
-		puts "#{students[count][:name]}, #{students[count][:cohort]} cohort"
-		count += 1
-		end
-end
 
-def print(students)
-	students.each do |student| 
-		puts "#{student[:name]} (#{student[:cohort]} cohort)"
-	end
-end
+
 
 
 # Dave's code
@@ -59,10 +46,7 @@ def print_with_index(students)
 	end
 end
 
-# prints footer with number of given students
-def print_footer(names)
-	puts "Overall, we have #{names.length} great students"
-end
+
 
 # asks for user input for names of students, adds them to an array then a hash
 # def input_students
@@ -88,17 +72,21 @@ def input_students_multi
 	puts "To finish, just hit return twice"
 
 	students = []
+	
 	name = gets.chomp
+
 	while !name.empty? do
 		students << build_student_from_input(name)
 		puts "Now we have #{students.length} students"
 		name = gets.chomp
 	end
+	print_header
+	print(students)
+	print_footer(students)
 end
 
 def build_student_from_input(name)
 	
-
 	puts "Please enter their cohort"
 	cohort = gets.chomp
 
@@ -117,6 +105,22 @@ def create_student(name, cohort, hobbies, country, cartoon)
 	{:name => name, :cohort => cohort, :hobbies => hobbies, :country => country, :cartoon => cartoon}
 end
 
+# changes .each to while loop
+# def print_loop(students)
+# 	length = students.length
+# 	count = 0
+# 	while count < length do 
+# 		puts "#{students[count][:name]}, #{students[count][:cohort]} cohort"
+# 		count += 1
+# 		end
+# end
+
+def print(students)
+	students.each do |student| 
+		puts "#{student[:name]} (#{student[:cohort]} cohort)".center(50)
+	end
+end
+
 # allows you to choose a letter and will then select only the students whose names begin with that letter
 def selection(students)
 	puts "Please enter a letter"
@@ -129,10 +133,12 @@ def less_twelve(students)
 	students.select {|student| student[:name].length < 12}
 end
 
-students = input_students_multi
-print_header
+# prints footer with number of given students
+def print_footer(names)
+	puts "Overall, we have #{names.length} great students".center(50)
+end
+
+input_students_multi
 # print(start_with(students,"D"))
 # print selection(students)
 # print less_twelve(students)
-print_loop(students)
-print_footer(students)
