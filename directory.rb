@@ -26,8 +26,8 @@
 # ]
 
 def print_header
-	puts "The students of my cohort at Makers Academy".center(50)
-	puts "------------------------".center(50)
+	puts "The students of my cohort at Makers Academy".center(100)
+	puts "------------------------".center(100)
 end
 
 
@@ -131,7 +131,7 @@ end
 
 def print(students)
 	students.each do |student| 
-		puts "#{student[:name]} (#{student[:cohort]} cohort)".center(50)
+		puts "#{student[:name]} (#{student[:cohort]} cohort) Hobbies include #{student[:hobbies]}, born in #{student[:country]}. Thinks that #{student[:cartoon]} should be president of the USA".center(100)
 	end
 end
 
@@ -149,7 +149,7 @@ end
 
 # prints footer with number of given students
 def print_footer(names)
-	puts "Overall, we have #{names.length} great students".center(50)
+	puts "Overall, we have #{names.length} great students".center(100)
 end
 
 input_students_multi
