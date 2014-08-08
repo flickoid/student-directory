@@ -71,19 +71,16 @@ def input_students_multi
 	puts "Please enter the names of the students"
 	puts "To finish, just hit return twice"
 
-	students = []
+	@students = []
 	
 	name = gets.chomp
 
 	while !name.empty? do
-		students << build_student_from_input(name)
-		puts "Now we have #{students.length} students"
+		@students << build_student_from_input(name)
+		puts "Now we have #{@students.length} students"
 		puts "Please enter the name of the next student"
 		name = gets.chomp
 	end
-	print_header
-	print(students)
-	print_footer(students)
 end
 
 def build_student_from_input(name)
@@ -130,7 +127,7 @@ end
 # end
 
 def print(students)
-	students.each do |student| 
+	@students.each do |student| 
 		puts "#{student[:name]} (#{student[:cohort]} cohort) Hobbies include #{student[:hobbies]}, born in #{student[:country]}. Thinks that #{student[:cartoon]} should be president of the USA".center(100)
 	end
 end
@@ -153,6 +150,9 @@ def print_footer(names)
 end
 
 input_students_multi
+print_header
+print(@students)
+print_footer(@students)
 # print(start_with(students,"D"))
 # print selection(students)
 # print less_twelve(students)
