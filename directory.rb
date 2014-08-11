@@ -30,15 +30,6 @@ def print_header
 	puts "------------------------".center(100)
 end
 
-
-
-
-
-# Dave's code
-# def start_with(students, start_letter)
-# 	students.select {|student| student[:name][0] == start_letter}
-# end
-
 # puts the names and cohorts of the students along with their index number
 def print_with_index(students)
 	students.each_with_index do |student, index| 
@@ -46,88 +37,54 @@ def print_with_index(students)
 	end
 end
 
-
-
 # asks for user input for names of students, adds them to an array then a hash
-# def input_students
-# 	puts "Please enter the names of the students"
-# 	puts "To finish, just hit return twice"
 
-# 	students = []
-
-# 	name = gets.chomp
-
-# 	while !name.empty? do
-# 		students << {:name => name, :cohort => :August}
-# 		puts "Now we have #{students.length} students"
-
-# 		name = gets.chomp
-# 	end
-# 	students
-# end
+	def get_input
+		input_given = gets.chomp
+		return nil if input_given == ""
+		puts "You entered '#{input_given}', are you happy with that? Y or N"
+		confirmation = gets.chomp
+		while confirmation.upcase == 'N'
+			puts "Please re-enter"
+			input_given = gets.chomp
+			puts "You entered '#{input_given}', are you happy with that? Y or N"
+			confirmation = gets.chomp
+		end
+		input_given
+	end
 
 
 def input_students_multi
 	puts "Please enter the names of the students"
 	puts "To finish, just hit return twice"
-
 	@students = []
-	
-	name = gets.chomp
-
-	while !name.empty? do
-		@students << build_student_from_input(name)
-		puts "Now we have #{@students.length} students"
-		puts "Please enter the name of the next student"
-		name = gets.chomp
+	puts "Do you want to enter a student? Y / N"
+	answer = gets.chomp
+	while answer.downcase == "y"
+		@students << build_student_from_input
+		puts "Do you want to enter a student?"
+		answer = gets.chomp
 	end
 end
 
-def build_student_from_input(name)
-	
-	puts "Please enter their cohort"
-	cohort = gets.chomp
-	if cohort.empty?
-		cohort = "blank"
+def build_student_from_input
+	catagories = ["name", "cohort", "hobbies", "country", "cartoon character"]
+	entries = catagories.map do |catagory|
+		puts "please enter #{catagory}"
+		get_input
 	end
-
-	puts "Please enter their hobbies"
-	hobbies = gets.chomp
-	if hobbies.empty?
-		hobbies = "blank"
-	end
-
-	puts "Please enter their country of birth"
-	country = gets.chomp
-	if country.empty?
-		country = "blank"
-	end
-
-	puts "What is their favourite cartoon character?"
-	cartoon = gets.chomp
-	if cartoon.empty?
-		cartoon = "blank"
-	end
-
+	name, cohort, hobbies, country, cartoon = entries	
 	create_student(name, cohort, hobbies, country, cartoon)
 end
+
 
 def create_student(name, cohort, hobbies, country, cartoon)
 	{:name => name, :cohort => cohort, :hobbies => hobbies, :country => country, :cartoon => cartoon}
 end
 
-# changes .each to while loop
-# def print_loop(students)
-# 	length = students.length
-# 	count = 0
-# 	while count < length do 
-# 		puts "#{students[count][:name]}, #{students[count][:cohort]} cohort"
-# 		count += 1
-# 		end
-# end
 
 def print(students)
-	@students.each do |student| 
+	students.each do |student| 
 		puts "#{student[:name]} (#{student[:cohort]} cohort) Hobbies include #{student[:hobbies]}, born in #{student[:country]}. Thinks that #{student[:cartoon]} should be president of the USA".center(100)
 	end
 end
